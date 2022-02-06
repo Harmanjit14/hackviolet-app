@@ -43,7 +43,9 @@ class _DashboardState extends State<Dashboard> {
                   physics: const NeverScrollableScrollPhysics(),
                   controller: _controller,
                   children: [
-                    const Exercise(),
+                    Exercise(
+                      map: data.caldays,
+                    ),
                     Chatbot(credentials: snapshot.data!['credentials']!),
                     BlogPage(
                       list: _list,
