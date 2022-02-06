@@ -1,7 +1,7 @@
 import 'package:baby2body/dashboard/blogs/blogpage.dart';
 import 'package:baby2body/dashboard/chatbot/chatbot.dart';
 import 'package:baby2body/dashboard/dashboard_data_builder.dart';
-import 'package:baby2body/dashboard/exercise/sxercise.dart';
+import 'package:baby2body/dashboard/exercise/exercise.dart';
 import 'package:dot_navigation_bar/dot_navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';

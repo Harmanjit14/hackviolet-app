@@ -14,15 +14,18 @@ class _SquatsState extends State<Squats> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Teachable(
-        path: "assets/posenet.html",
-        results: (res) {
-          // Recieve JSON data here
+      body: AspectRatio(
+        aspectRatio: 9 / 16,
+        child: Teachable(
+          path: "assets/posenet.html",
+          results: (res) {
+            // Recieve JSON data here
 
-          // Convert json to usable format
-          var resp = jsonDecode(res);
-          print("The values are $resp");
-        },
+            // Convert json to usable format
+            var resp = jsonDecode(res);
+            print("The values are $resp");
+          },
+        ),
       ),
     );
   }
