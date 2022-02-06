@@ -1,3 +1,4 @@
+import 'package:baby2body/constants/color.dart';
 import 'package:baby2body/constants/text.dart';
 import 'package:baby2body/dashboard/exercise/all_exercises/squats.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -88,8 +89,8 @@ class CalenderBuilder extends StatelessWidget {
               return Center(
                 child: Container(
                   padding: const EdgeInsets.all(15),
-                  decoration: const BoxDecoration(
-                      color: Colors.pink, shape: BoxShape.circle),
+                  decoration:
+                      const BoxDecoration(color: pink, shape: BoxShape.circle),
                   child: Text(
                     day.day.toString(),
                     style: const TextStyle(

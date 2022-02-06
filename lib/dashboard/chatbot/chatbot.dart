@@ -1,3 +1,4 @@
+import 'package:baby2body/constants/color.dart';
 import 'package:baby2body/constants/text.dart';
 import 'package:dialog_flowtter/dialog_flowtter.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -128,7 +129,7 @@ class _ChatbotState extends State<Chatbot> {
                                 borderRadius: BorderRadius.circular(10),
                                 color: (msg.frombot!)
                                     ? Colors.grey[700]
-                                    : Colors.pink[400],
+                                    : pink,
                               ),
                               child: Text(
                                 msg.message,
@@ -137,65 +138,6 @@ class _ChatbotState extends State<Chatbot> {
                               ),
                             ),
                           ),
-                        ),
-                      );
-                      return Padding(
-                        padding: const EdgeInsets.fromLTRB(7, 10, 7, 10),
-                        child: Row(
-                          mainAxisAlignment: (msg.frombot!)
-                              ? MainAxisAlignment.start
-                              : MainAxisAlignment.end,
-                          children: [
-                            if (msg.frombot!)
-                              Container(
-                                padding: const EdgeInsets.all(12),
-                                decoration: const BoxDecoration(
-                                  shape: BoxShape.circle,
-                                  color: Colors.grey,
-                                ),
-                                child: Text(
-                                  'B',
-                                  style: boldtextsyle(
-                                      size: size.width / 24,
-                                      color: Colors.white),
-                                ),
-                              ),
-                            const SizedBox(
-                              width: 10,
-                            ),
-                            Container(
-                              padding: const EdgeInsets.all(12),
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(10),
-                                color: (msg.frombot!)
-                                    ? Colors.grey
-                                    : Colors.pink[400],
-                              ),
-                              child: Text(
-                                msg.message!,
-                                maxLines: 20,
-                                style: mediumtextsyle(
-                                    size: size.width / 24, color: Colors.white),
-                              ),
-                            ),
-                            const SizedBox(
-                              width: 10,
-                            ),
-                            if (!msg.frombot!)
-                              Container(
-                                padding: const EdgeInsets.all(12),
-                                decoration: BoxDecoration(
-                                  shape: BoxShape.circle,
-                                  color: Colors.pink[400],
-                                ),
-                                child: Text(
-                                  'Y',
-                                  style: boldtextsyle(
-                                      size: size.width / 24,
-                                      color: Colors.white),
-                                ),
-                              ),
-                          ],
                         ),
                       );
                     }),
@@ -231,6 +173,7 @@ class _ChatbotState extends State<Chatbot> {
                 Padding(
                   padding: const EdgeInsets.all(8),
                   child: FloatingActionButton(
+                    backgroundColor: pink,
                     onPressed: () async {
                       if (_controller.text.isNotEmpty) {
                         Messages temp =

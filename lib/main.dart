@@ -1,4 +1,5 @@
 import 'package:baby2body/auth/loginscreen.dart';
+import 'package:baby2body/constants/color.dart';
 import 'package:baby2body/dashboard/dashboard.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -22,8 +23,9 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
-      title: 'Flutter Demo',
+      title: 'Baby,let\'s move!',
       theme: ThemeData(
+        progressIndicatorTheme: const ProgressIndicatorThemeData(color: pink),
         primarySwatch: Colors.pink,
       ),
       home: const Launcher(),

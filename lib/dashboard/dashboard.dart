@@ -1,3 +1,4 @@
+import 'package:baby2body/constants/color.dart';
 import 'package:baby2body/dashboard/blogs/blogpage.dart';
 import 'package:baby2body/dashboard/chatbot/chatbot.dart';
 import 'package:baby2body/dashboard/dashboard_data_builder.dart';
@@ -71,19 +72,19 @@ class _DashboardState extends State<Dashboard> {
             /// Likes
             DotNavigationBarItem(
               icon: const Icon(Icons.home),
-              selectedColor: Colors.pink,
+              selectedColor: pink,
             ),
 
             /// Search
             DotNavigationBarItem(
               icon: const Icon(Icons.chat),
-              selectedColor: Colors.pink,
+              selectedColor: pink,
             ),
 
             /// Profile
             DotNavigationBarItem(
               icon: const Icon(Icons.live_tv),
-              selectedColor: Colors.pink,
+              selectedColor: pink,
             ),
           ],
         ),

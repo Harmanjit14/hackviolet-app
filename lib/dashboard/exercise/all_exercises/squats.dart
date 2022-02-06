@@ -28,16 +28,18 @@ class _SquatsState extends State<Squats> {
     Map<String, dynamic> map = {};
 
     if (a > a_in && a > b && a > b_in) {
-      map.putIfAbsent('res', () => 'Go Down Slowly');
+      map.putIfAbsent('res', () => 'Correct Pose: Keep Going!');
       map.putIfAbsent('status', () => true);
     } else if (b > a_in && b > b && b > b_in) {
-      map.putIfAbsent('res', () => 'Go Up Slowly');
+      map.putIfAbsent('res', () => 'Correct Pose: Keep Going!');
       map.putIfAbsent('status', () => true);
     } else if (a_in > a && a_in > b && a_in > b_in) {
-      map.putIfAbsent('res', () => 'Go Down Slowly');
+      map.putIfAbsent(
+          'res', () => 'Incorrect: Put you knees inline with your ankles');
       map.putIfAbsent('status', () => false);
     } else if (b_in > a_in && b_in > b && b_in > a) {
-      map.putIfAbsent('res', () => 'Go Up Slowly');
+      map.putIfAbsent(
+          'res', () => 'Incorrect: Put you knees inline with your ankles');
       map.putIfAbsent('status', () => false);
     } else {
       map.putIfAbsent('res', () => 'Adjust the camera');
