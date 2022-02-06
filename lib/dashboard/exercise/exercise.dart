@@ -187,7 +187,13 @@ class ExerciseGrid extends StatelessWidget {
                                     color: Colors.grey,
                                   )
                                 ]),
-                            child: Image.asset('assets/squats.gif'),
+                            child: ClipRRect(
+                              borderRadius: BorderRadius.circular(10),
+                              child: Image.asset(
+                                assets[index],
+                                fit: BoxFit.fitHeight,
+                              ),
+                            ),
                           ),
                         ),
                         const SizedBox(

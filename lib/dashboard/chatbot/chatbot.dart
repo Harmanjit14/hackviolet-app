@@ -71,6 +71,17 @@ class _ChatbotState extends State<Chatbot> {
               SizedBox(
                 height: size.width / 30,
               ),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Text(
+                  'This chatbot is backed up by AI which answers all your health/pregnancy related queries',
+                  style: mediumtextsyle(size: size.width / 20),
+                  textAlign: TextAlign.center,
+                ),
+              ),
+              SizedBox(
+                height: size.width / 30,
+              ),
               ElevatedButton(
                   style: ButtonStyle(
                     padding: MaterialStateProperty.all(
