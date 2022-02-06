@@ -89,7 +89,7 @@ class _AuthListenerState extends State<AuthListener> {
           if (snapshot.data!.isAnonymous) {
             return LoginScreen();
           } else {
-            return Dashboard();
+            return const Dashboard();
           }
         } else {
           return LoginScreen();

@@ -1,5 +1,9 @@
 import 'package:baby2body/constants/text.dart';
+import 'package:baby2body/dashboard/exercise/all_exercises/squats.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:table_calendar/table_calendar.dart';
 
 class Exercise extends StatelessWidget {
@@ -9,7 +13,7 @@ class Exercise extends StatelessWidget {
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     return ListView(
-      shrinkWrap: true,
+      shrinkWrap: false,
       children: [
         Padding(
           padding: const EdgeInsets.all(20),
@@ -36,6 +40,7 @@ class Exercise extends StatelessWidget {
             style: mediumtextsyle(size: size.width / 17),
           ),
         ),
+        ExerciseGrid(),
       ],
     );
   }
@@ -123,29 +128,79 @@ class CalenderBuilder extends StatelessWidget {
 }
 
 class ExerciseGrid extends StatelessWidget {
-  const ExerciseGrid({Key? key}) : super(key: key);
+  ExerciseGrid({Key? key}) : super(key: key);
+
+  final List<String> tags = ['Squats', 'Lunges', 'Push-Ups'];
+  final List<String> video = ['Squats', 'Lunges', 'Push-Ups'];
+  final List<String> assets = [
+    'assets/squats.gif',
+    'assets/lunges.gif',
+    'assets/pushups.gif'
+  ];
 
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.all(20.0),
-      child: GridView(
-        gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-            crossAxisCount: 2,
-            childAspectRatio: 1,
-            mainAxisExtent: 15,
-            crossAxisSpacing: 15),
-        children: [
-          Container(
-            // child: Image.asset(name),
-            decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(10),
-                color: Colors.white,
-                boxShadow: const [
-                  BoxShadow(blurRadius: 9, color: Colors.grey)
-                ]),
-          )
-        ],
+      child: SizedBox(
+        child: GridView.builder(
+            physics: const NeverScrollableScrollPhysics(),
+            shrinkWrap: true,
+            itemCount: 3,
+            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+              crossAxisCount: 2,
+              childAspectRatio: 2 / 3,
+              mainAxisSpacing: 10,
+              crossAxisSpacing: 5,
+            ),
+            itemBuilder: (context, index) {
+              return InkWell(
+                  onTap: () async {
+                    if (index == 0) {
+                      FirebaseFirestore.instance
+                          .collection(
+                              FirebaseAuth.instance.currentUser!.uid.toString())
+                          .add({
+                        'day': DateTime.now().day,
+                        'month': DateTime.now().month,
+                      });
+                      Get.to(() => const Squats());
+                    } else {
+                      Get.snackbar(
+                          'Error', 'Currently this service is not available.');
+                    }
+                  },
+                  child: Padding(
+                    padding: const EdgeInsets.all(10),
+                    child: Column(
+                      mainAxisSize: MainAxisSize.min,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Expanded(
+                          child: Container(
+                            decoration: BoxDecoration(
+                                color: Colors.white,
+                                borderRadius: BorderRadius.circular(10),
+                                boxShadow: const [
+                                  BoxShadow(
+                                    blurRadius: 8,
+                                    color: Colors.grey,
+                                  )
+                                ]),
+                            child: Image.asset('assets/squats.gif'),
+                          ),
+                        ),
+                        const SizedBox(
+                          height: 10,
+                        ),
+                        Text(
+                          tags[index],
+                          style: boldtextsyle(size: 15),
+                        )
+                      ],
+                    ),
+                  ));
+            }),
       ),
     );
   }
