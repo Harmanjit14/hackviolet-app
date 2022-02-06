@@ -1,16 +1,18 @@
-# baby2body
+## Inspiration
+What a bizarre world we’re currently living in! For women who are pregnant, this can be a particularly emotional and stressful time. Taking some time for one’s own mental and physical health is very important and for most, this should include exercising. 
 
-A new Flutter project.
+With current restrictions, most of us don’t have access to gyms or professional trainers so we resort to exercise by following online content (fitness apps, youtube videos, etc).
 
-## Getting Started
+Now, the problem with this is that exercise, if not done correctly can do more harm than good. Incorrect posture could cause joint pain, back pain, and propose some serious health concerns for the mother and the baby.
 
-This project is a starting point for a Flutter application.
+Keeping all these points in mind, we came up with an app for pregnant women where they can follow an exercise regime: as you follow the exercise, the app keeps a check on your posture. If at any point your posture is incorrect, the app instructs you on how to correct it. All this happens in real-time, as you exercise.
 
-A few resources to get you started if this is your first Flutter project:
+Apart from this, we added two more key features which include:
+ A chatbot backed up by AI which answers your health-related question
+And a blogs section where you can find certified articles about exercise and lifestyle during pregnancy.
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## Features
+An app where pregnant women can follow an exercise regime. With the help of Machine Learning posenet model, the app keeps a check on the user’s posture during exercise and informs and instructs them whenever their posture is not proper.
+An AI-based chatbot based on Google's DialogFlow where the user can ask all their health and exercise-related questions related to pregnancy.
+A blogs section where the user can find certified articles based on pregnant women’s healthcare.
